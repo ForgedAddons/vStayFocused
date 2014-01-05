@@ -1,0 +1,16 @@
+## Interface: 50400
+## Version: 50400.ALPHA.2
+## Title: |cffc7c7cfv|rStayFocused
+## Notes: Focus / energy / mana bar with few extras.
+## Author: Drauer | github/ForgedAddons
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## SavedVariablesPerCharacter: vStayFocusedDB
+
+externals\events.lua
+config.lua
+init.lua
+modules\bar.lua
+modules\tick.lua
+modules\prediction.lua
+main.lua
