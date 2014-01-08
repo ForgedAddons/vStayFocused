@@ -1,11 +1,12 @@
 ## Interface: 50400
-## Version: 50400.ALPHA.2
+## Version: 50400.ALPHA.3
 ## Title: |cffc7c7cfv|rStayFocused
 ## Notes: Focus / energy / mana bar with few extras.
-## Author: Drauer | github/ForgedAddons
+## Author: Drauer
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 ## SavedVariablesPerCharacter: vStayFocusedDB
+## X-GitHub: ForgedAddons/vStayFocused
 
 externals\events.lua
 config.lua
