@@ -1,17 +1,19 @@
 local addon, ns = ...
 
 local classSpells = {
-	HUNTER 		= { 34026, 53209, 53301 }, -- Kill Command, Chimera Shot, Explosive Shot
-	WARRIOR 	= { 12294, 23881,  2565 }, -- Mortal Strike, Blood Thirst, Shield Block
-	ROGUE		= { 1329,   1752,    53 }, -- Mutilate, Sinister Strike, Backstab
-	WARLOCK		= { 86121,   686, 29722 }, -- Soul Swap, Shadow Bolt, Incinerate -- prob better choices....
+	HUNTER 		= { 40, 35, 15 }, -- Kill Command, Chimaera Shot, Explosive Shot
+	--DISABLE ALL CLASSES FOR NOW
+	--WARRIOR 	= { 12294, 23881,  2565 }, -- Mortal Strike, Blood Thirst, Shield Block
+	--ROGUE		= { 1329,   1752,    53 }, -- Mutilate, Sinister Strike, Backstab
+	--WARLOCK		= { 86121,   686, 29722 }, -- Soul Swap, Shadow Bolt, Incinerate -- prob better choices....
 }
 
 local playerClass = select(2, UnitClass("player"))
 if classSpells[playerClass] == nil then return end
 
 local function updateMainSpellCost()
-	local currentCost = select(4, GetSpellInfo(classSpells[playerClass][GetSpecialization() or 1]))
+	--local currentCost = select(4, GetSpellInfo(classSpells[playerClass][GetSpecialization() or 1]))
+	local currentCost = classSpells[playerClass][GetSpecialization() or 1]
 	if (currentCost ~= 0) then
 		ns.status.main_spell_cost = currentCost
 	end

@@ -1,8 +1,8 @@
-## Interface: 50400
-## Version: 50400.ALPHA.3
+## Interface: 60000
+## Version: 60000.1
 ## Title: |cffc7c7cfv|rStayFocused
 ## Notes: Focus / energy / mana bar with few extras.
-## Author: Drauer
+## Author: Drauer @Darkspear-EU / vforge @github
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
 ## SavedVariablesPerCharacter: vStayFocusedDB
