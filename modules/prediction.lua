@@ -8,12 +8,11 @@ local base_prediction = 14
 local function getPredictionAdjustment()
 	local adjustment = 0
 	
-	-- Account for MM Steady Focus buff 3 extra focus
-	---- Contributed to by: osa - http://www.mmo-champion.com/threads/1169669-JSHB-The-future-and-MoP?p=17825521&viewfull=1#post17825521
-	if (GetSpecialization() == 2) and select(1, UnitAura("player", GetSpellInfo(53220), nil, "HELPFUL")) then -- 53220 = Steady Focus (buff)
-		adjustment = adjustment + 3
-	end
-	---- end osa
+	-- Account for Steady Focus buff x2 focus
+	-- currently broken, investigation in progress 
+	-- if select(1, UnitAura("player", GetSpellInfo(53220), nil, "HELPFUL")) then
+	-- 	adjustment = adjustment + 3
+	-- end
 
 	return adjustment
 end
