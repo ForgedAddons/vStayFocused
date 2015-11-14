@@ -20,7 +20,7 @@ ns.dbpc = {
 	font_size = 16,
 	font_outline = true,
 	
-	width = 350,
+	width = 250,
 	height = 13,
 	
 	point = "CENTER", 
