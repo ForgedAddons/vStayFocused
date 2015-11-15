@@ -1,7 +1,7 @@
 WoW Addon: vStayFocused
 ========================
 
-Previously known as StayFocused! (configuration moved to lua file)
+Configuration moved to file: config.lua
 
 Focus / energy / mana bar with few extras:
 
