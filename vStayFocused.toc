@@ -1,5 +1,5 @@
 ## Interface: 60200
-## Version: 60200.1
+## Version: 60200.2
 ## Title: |cffc7c7cfv|rStayFocused
 ## Notes: Focus / energy / mana bar with few extras.
 ## Author: Drauer#1706 @battle.net / vforge @github
