@@ -4,6 +4,8 @@ if select(2, UnitClass("player")) ~= "HUNTER" then return end
 
 local STEADY_SHOT = 56641
 local COBRA_SHOT = 77767
+local FOCUSING_SHOT_COBRA = 152245
+local FOCUSING_SHOT_STEADY = 163485
 local base_prediction = 14
 local function getPredictionAdjustment()
 	local adjustment = 0
@@ -13,6 +15,8 @@ local function getPredictionAdjustment()
 	-- if select(1, UnitAura("player", GetSpellInfo(53220), nil, "HELPFUL")) then
 	-- 	adjustment = adjustment + 3
 	-- end
+
+	if ns.status.player_is_casting_fs then return 36 end
 
 	return adjustment
 end
@@ -37,8 +41,11 @@ end
 function ns.prediction.StartCasting(event, ...)
 	local sourceUnit, _, _, _, spellId = ...
 	if (sourceUnit == "player") then			
-		if spellId  == STEADY_SHOT or spellId == COBRA_SHOT then
+		if spellId == STEADY_SHOT or spellId == COBRA_SHOT then
 			ns.status.player_is_casting = true
+		elseif spellId == FOCUSING_SHOT_STEADY or spellId == FOCUSING_SHOT_COBRA then
+			ns.status.player_is_casting = true
+			ns.status.player_is_casting_fs = true
 		end
 	end
 end
@@ -46,8 +53,12 @@ end
 function ns.prediction.StopCasting(event, ...)
 	local sourceUnit, _, _, _, spellId = ...	
 	if (sourceUnit == "player") then		
-		if spellId  == STEADY_SHOT or spellId == COBRA_SHOT then
+		if spellId == STEADY_SHOT or spellId == COBRA_SHOT then
 			ns.status.player_is_casting = false
+			ns.prediction:Hide()
+		elseif spellId == FOCUSING_SHOT_STEADY or spellId == FOCUSING_SHOT_COBRA then
+			ns.status.player_is_casting = false
+			ns.status.player_is_casting_fs = false
 			ns.prediction:Hide()
 		end
 	end
