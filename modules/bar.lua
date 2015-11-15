@@ -11,7 +11,7 @@ function ns.bar.Create()
 	ns.bar.backdrop:SetPoint("TOPLEFT", -1, 1)
 	ns.bar.backdrop:SetPoint("BOTTOMRIGHT", 1, -1)
 	ns.bar.backdrop:SetTexture(0, 0, 0, ns.dbpc.backdrop_alpha)
-		
+
 	ns.bar:SetPoint(ns.dbpc.point, "UIParent", ns.dbpc.relativePoint, ns.dbpc.xOfs, ns.dbpc.yOfs)
 	ns.bar:SetSize(ns.dbpc.width, ns.dbpc.height)
 
@@ -28,15 +28,17 @@ end
 
 local function getPwPercent(power, decimal, smart)
 	if smart and (power == ns.status.max_power or power == 0) then return '' end
+
 	local pc = power / ns.status.max_power * 100.0
+
 	return smart and (decimal and string.format(' (%.1f%%)', pc) or string.format(' (%.0f%%)', pc))
-                  or (decimal and string.format('%.1f%%', pc)    or string.format('%.0f%%', pc))
+		or (decimal and string.format('%.1f%%', pc) or string.format('%.0f%%', pc))
 end
 
 function ns.bar.FormattedPower()
 	local style = ns.dbpc.style
 	local power = ns.status.current_power
-	
+
 	if style == 1 then
 		return power..getPwPercent(power, true, true)
 	elseif style == 2 then
@@ -56,11 +58,11 @@ function ns.bar.PowerUpdated()
 	-- color
 	local color = ns.GetBarColor()
 	ns.bar:SetStatusBarColor(color.r, color.g, color.b)
-	
+
 	-- values
 	ns.bar:SetValue(ns.status.current_power)
 	ns.bar.value:SetText(ns.bar.FormattedPower())
-	
+
 	-- alpha
 	if ns.status.current_power == 0 then
 		ns.bar:SetAlpha(ns.status.in_combat and ns.dbpc.alpha_zero or ns.dbpc.alpha_ooc_zero)

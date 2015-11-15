@@ -10,9 +10,9 @@ ns.update_handlers = {}
 
 function ns.GetBarColor(prediction)
 	local o = ns.dbpc
-	
+
 	if not prediction then prediction = 0 end
-	
+
 	if ns.status.main_spell_cost and ((ns.status.current_power + prediction) < ns.status.main_spell_cost) then
 		return o.low_color
 	else
