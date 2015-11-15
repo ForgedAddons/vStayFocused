@@ -10,3 +10,6 @@ For Hunters:
 	- how much focus you need for your basic rotation spell (Kill Command / Chimaera Shot / Explosive Shot)
 
 Source: http://github.com/ForgedAddons/vStayFocused
+
+Additional credits:
+- razko - for Focusing Shot predicion
